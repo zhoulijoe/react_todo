@@ -21,7 +21,11 @@ module.exports = function () {
           publicPath: webpackConf.output.publicPath,
 
           // Quiet verbose output in console
-          quiet: true
+          quiet: true,
+
+          devServer: {
+            historyApiFallback: true,
+          }
         }),
 
         // bundler should be the same as above
