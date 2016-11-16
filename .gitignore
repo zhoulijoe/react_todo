@@ -1,0 +1,11 @@
+.tmp/
+coverage/
+dist/
+node_modules/
+
+# Intellij
+.idea/
+*.iml
+
+# OSX
+.DS_Store
