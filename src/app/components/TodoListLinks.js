@@ -1,20 +1,24 @@
 import React, {Component, PropTypes} from 'react';
-import NavLink from './NavLink';
+import {Link} from 'react-router';
 
 class TodoListLinks extends Component {
   render() {
     return (
-      <ul>
-        {this.props.todoLists.map(todoList => (
-          <li key={todoList.id}><NavLink to={`/lists/${todoList.id}`}>{todoList.title}</NavLink></li>
-        ))}
-      </ul>
+      <div>
+        <ul>
+          {this.props.todoLists.map(todoList => (
+            <li key={todoList.id}><Link to={`/lists/${todoList.id}`}>{todoList.title}</Link></li>
+          ))}
+        </ul>
+        {this.props.children}
+      </div>
     );
   }
 }
 
 TodoListLinks.propTypes = {
-  todoLists: PropTypes.array.isRequired
+  todoLists: PropTypes.array.isRequired,
+  children: PropTypes.object
 };
 
 export default TodoListLinks;

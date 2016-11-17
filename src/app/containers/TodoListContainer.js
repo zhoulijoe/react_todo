@@ -1,11 +1,12 @@
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as TodoActions from '../actions/index';
-import App from '../components/App';
+import TodoList from '../components/TodoList';
+import TodoQuery from '../store/TodoQuery';
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   return {
-    todos: state.todos
+    todos: TodoQuery.getTodosInList(state, Number(ownProps.params.listId))
   };
 }
 
@@ -18,4 +19,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(App);
+)(TodoList);
