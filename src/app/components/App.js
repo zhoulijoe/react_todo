@@ -1,5 +1,5 @@
-import React, {Component, PropTypes} from "react";
-import NavBar from "./NavBar";
+import React, {Component, PropTypes} from 'react';
+import NavBar from './NavBar';
 
 class App extends Component {
   render() {

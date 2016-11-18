@@ -1,5 +1,5 @@
-import React, {Component, PropTypes} from "react";
-import classnames from "classnames";
+import React, {Component, PropTypes} from 'react';
+import classnames from 'classnames';
 
 class TodoItem extends Component {
   constructor(props, context) {
@@ -37,7 +37,12 @@ class TodoItem extends Component {
 }
 
 TodoItem.propTypes = {
-  todo: PropTypes.object.isRequired,
+  todo: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    text: PropTypes.string.isRequired,
+    completed: PropTypes.bool.isRequired,
+    todoList: PropTypes.number.isRequired
+  }).isRequired,
   toggleCompleteTodo: PropTypes.func.isRequired
 };
 

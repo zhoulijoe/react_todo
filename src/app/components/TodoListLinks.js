@@ -7,7 +7,7 @@ class TodoListLinks extends Component {
       <div>
         <ul>
           {this.props.todoLists.map(todoList => (
-            <li key={todoList.id}><Link to={`/lists/${todoList.id}`}>{todoList.title}</Link></li>
+            <li key={todoList.id.toString()}><Link to={`/lists/${todoList.id}`}>{todoList.title}</Link></li>
           ))}
         </ul>
         {this.props.children}
@@ -17,7 +17,10 @@ class TodoListLinks extends Component {
 }
 
 TodoListLinks.propTypes = {
-  todoLists: PropTypes.array.isRequired,
+  todoLists: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired
+  }).isRequired).isRequired,
   children: PropTypes.object
 };
 

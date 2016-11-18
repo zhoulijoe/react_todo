@@ -1,9 +1,10 @@
 import todoLists from './todoLists';
 import todos from './todos';
+import {combineReducers} from 'redux';
 
-export default function entities(state = {}, action) {
-  return {
-    todoLists: todoLists(state.todoLists, action),
-    todos: todos(state.todos, action)
-  };
-}
+const entitiesReducer = combineReducers({
+  todoLists,
+  todos
+});
+
+export default entitiesReducer;
